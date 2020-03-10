@@ -6,6 +6,13 @@
 # 
 # Consejo: utiliza los diccionarios para cambiar los caracteres del texto ingresado
 #
+#####################################################################################################
+#
+# Mas abajo esta el ejercicio, trata de hacerlo solo, si no puedes echa un 
+# vistazo a la solucion que se muestra mas abajo
+#
+######################################################################################################
+#
 
 
 
@@ -15,9 +22,7 @@
 
 
 
-
-
-codigo = {"a"or"A":"",
+codigo = {"a":"7",
         "b":"q",
         "c":"w",
         "d":"e",
@@ -59,20 +64,37 @@ codigo = {"a"or"A":"",
         "0":"*"
 }
 
-print("--- CODIFICADOR / DECODIFICADOR ---");
-opc = input("""
+while(True):
+    print("--- CODIFICADOR / DECODIFICADOR ---");
+    opc = input("""
 
-    [c]odificar
-    [d]ecodificar
-    [s]alir
+        [c]odificar
+        [d]ecodificar
+        [s]alir
 
-""");
+    """);
 
-if(opc.lower() == "c"):
-    texto = input("Ingresa el texto a codificar")
-elif(opc.lower() == "d"):
-else:
-    exit();
+    if(opc.lower() == "c"):
+        texto = input("Ingresa el texto a codificar: \n");
+        
+        textoRes = "";
+        for c in texto:
+            textoRes += codigo.get(c,"?");
+        
+    elif(opc.lower() == "d"):
+        texto = input("Ingresa el texto a decodificar: \n");
 
-texto = input("Escribe el texto a ")
+        textoRes = "";
+        for c in texto:
+            for k, v in codigo.items():
+                
+                if(v == c):
+                    textoRes += k
+    else:
+        exit();
+    
+    
+
+    print("Texto codificado: \n" + textoRes + "\n");
+
 
